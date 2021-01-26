@@ -90,17 +90,36 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         centerTitle: true,
         title: Text('Calculator'),
-        //actions: <Widget>[
-          //IconButton(
-            //icon: Icon(
-              //Icons.more_vert,
-              //color: Colors.black,
-            //),
-            //onPressed: () {
-              // do something
-           // },
-          //)
-        //],
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(
+              Icons.more_vert,
+              color: Colors.black,
+            ),
+            onPressed: () {
+              return showDialog(
+                  context: context,
+                  builder:(ctx) => AlertDialog(
+                      title: Text(
+                          'About'
+                      ),
+                      content:Text(
+                          'This Calculator is an open source project by Suresh Mishra. He is a young and passionate developer, who is currently learning Flutter.'
+                          'You can modify this app according to you,  for Source Code visit the GitHub Repository.'
+                      ),
+                      actions: <Widget>[
+                         FlatButton(
+                             onPressed: () {
+                                 Navigator.of(ctx).pop();
+                             },
+                             child: Text('OK'),
+                         ),
+                      ],
+                  ),
+              );
+            },
+          )
+        ],
       ),
       body: Container(
         child: Column(
